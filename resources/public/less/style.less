@@ -1,0 +1,114 @@
+@import "../bootstrap/less/bootstrap.less";
+
+/*********************************************************************************/
+/* Menu Customization                                                            */
+/*********************************************************************************/
+@bgDefault      : rgba(255, 36, 0, 0.5);
+@bgHighlight    : #8b99b6;
+@colDefault     : #ecf0f1;
+@colHighlight   : #ffffff;
+@dropDown       : true;
+.ddm() when (@dropDown) {
+  > .dropdown-menu {
+    background-color: @bgDefault;
+    > li > a {
+      color: @colDefault;
+      &:hover,  &:focus {
+        color: @colHighlight;
+        background-color: @bgHighlight; }}
+    .divider {
+      background-color: @bgHighlight;}}}
+.navbar-default {
+  background-color: @bgDefault;
+  border-color: @bgHighlight;
+  .navbar-brand {
+    color: @colDefault;
+    &:hover, &:focus {
+      color: @colHighlight; }}
+  .navbar-text {
+    color: @colDefault; }
+  .navbar-nav {
+    > li {
+      > a {
+        color: @colDefault;
+        &:hover,  &:focus {
+          color: @colHighlight; }}
+      .ddm }
+    > .active {
+      > a, > a:hover, > a:focus {
+        color: @colHighlight;
+        background-color: @bgHighlight; }}
+    > .open {
+      > a, > a:hover, > a:focus {
+        color: @colHighlight;
+        background-color: @bgHighlight; }}}
+  .navbar-toggle {
+    border-color: @bgHighlight;
+    &:hover, &:focus {
+      background-color: @bgHighlight; }
+    .icon-bar {
+      background-color: @colDefault; }}
+  .navbar-collapse,
+  .navbar-form {
+    border-color: @colDefault; }
+  .navbar-link {
+    color: @colDefault;
+    &:hover {
+      color: @colHighlight; }}}
+@media (max-width: 767px) {
+  .navbar-default .navbar-nav .open .dropdown-menu {
+    > li > a {
+      color: @colDefault;
+      &:hover, &:focus {
+        color: @colHighlight; }}
+    > .active {
+      > a, > a:hover, > a:focus {
+        color: @colHighlight;
+        background-color: @bgHighlight; }}}
+}
+
+
+/*********************************************************************************/
+/* Header                                                                        */
+/*********************************************************************************/
+
+
+
+#background-container
+{
+  background-position: left top;
+  background: url(../image/header.jpg) no-repeat bottom center;
+  background-attachment: fixed;
+  background-size: cover;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: -1; /* Ensure div tag stays behind content; -999 might work, too. */
+}
+
+#background-container:before
+{
+  content: '';
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(64,64,64,0.125);
+}
+
+
+#nav-container
+{
+  background: rgba(151, 205, 218, 0.3);
+  top: 0;
+  left: 0;
+  width: 100%;
+  position: relative;
+}
+
+navbar-custom-color
+{
+  background: rgba(0,0,0,.1);
+}
