@@ -10,9 +10,6 @@
      [:meta {:http-equiv "X-UA-Compatible" :content "IE=edge"}]
      [:meta {:name "viewport" :content "width=device-width, intial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0"}]
      [:title title]
-     ;(include-css "/bootstrap/dist/css/bootstrap.css")
-     ;(include-css "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css")
-     ;(include-css "/bootstrap/dist/css/bootstrap-theme.css")
      [:script
       (str "less = {env: \"development\",
                    async: false,
@@ -23,14 +20,17 @@
                    relativeUrls: false,
                    rootpath: \"\"
                    };")]
-     ;(include-css "/bootstrap/less/bootstrap.less")
-     ;[:link {:rel "stylesheet/less" :href "/bootstrap/less/bootstrap.less"}]
+     ;(include-css "/bootstrap-3.3.5/dist/css/bootstrap.min.css")
+     ;(include-css "/bootstrap-fileinput/css/fileinput.min.css")
+     ;[:link {:rel "stylesheet/less" :href "/bootstrap-3.3.5-dist/less/bootstrap.less"}]
+     ;:link {:rel "stylesheet" :media "all" :href "/bootstrap-fileinput/css/fileinput.min.css"}]
      [:link {:rel "stylesheet/less" :href "/less/style.less"}]
      ;(include-css "/less/style.less")
-     (include-css "/css/custom.css")
+     ;(include-css "/css/custom.css")
      ;(include-css "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css")
      ]
-    [:body ;{:ng-app "progressBar" :ng-controller "progressBarCtrl as pbCtrl" }
+    [:body {:ng-app "MyApp" }
+     (create-faded-modal-alert "Info" "This is a Text Message you may read <br>")
      [:div {:id "background-container"}
       [:div [:h3.text-center "New Banner"]]
       [:div {:id "nav-container"}
@@ -42,56 +42,32 @@
            [:span.icon-bar]
            [:span.icon-bar]
            [:span.icon-bar]]
-          [:a.navbar-brand {:href ""} "Some Brand"]]
-
+          [:a.navbar-brand {:href "#"}
+           [:span.glyphicon.glyphicon-home]]]
          [:div.collapse.navbar-collapse {:id "navbar-collapse-menu" }
          [:ul.nav.navbar-nav
-          [:li [:a "Link1"]]
+          [:li [:a {:href "#generateTemplate"}"SKU Build" ]]
           [:li.dropdown
            [:a.dropdown-toggle {:data-toggle "dropdown" :role "button" :aria-expanded false}"DropDown"[:span.caret]]
            [:ul.dropdown-menu {:role "menu"}
-            [:li[:a"menu1"]]
+            [:li[:a {:href "#generateModal"}"menu1"]]
             [:li[:a"menu2"]]
-            [:li.divider]
             [:li[:a"menu3"]]
             [:li[:a"menu4"]]]]]
-         ]]]]]]
+         ]]]]
+       [:div.ng-view.slide-in {:class"page {{ pageClass }}"} ]
+      ]]
      ;(create-faded-modal-alert "Staples Dashboard" "This site is under construction")
      ;(progress-bar-sample)
-     ;(include-js "/jquery/dist/jquery.js")
-     (include-js "https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js")
-     (include-js "/bootstrap/dist/js/bootstrap.js")
+     (include-js "/jquery/dist/jquery.js")
+     ;(include-js "https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js")
+     ;(include-js "/bootstrap-fileinput/js/fileinput.min.js")
+     (include-js "/bootstrap-3.3.5/dist/js/bootstrap.js")
      (include-js "/less.js-master/dist/less.js")
      ;(include-js "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js")
-     (include-js "/angular/angular.min.js")
+     (include-js "/angular-1.4.3/angular.min.js")
+     (include-js "/angular-1.4.3/angular-animate.min.js")
+     (include-js "/angular-route/angular-route.js")
+     (include-js "/angular-ui/ui-bootstrap-tpls-0.13.1.js")
      (include-js "app/app.js")
      ))
-
-
-
-
-
-
-
-(defn create-test [title]
-  (html5
-    [:head
-     [:meta {:charset "utf-8"}]
-     [:meta {:http-equiv "X-UA-Compatible" :content "IE=edge"}]
-     [:meta {:name "viewport" :content "width=device-width, intial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0"}]
-     [:title title]
-     ;(include-css "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.css")
-     (include-css "/bootstrap/dist/css/bootstrap.css")
-     ;(include-css "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.css")
-     (include-css "/bootstrap/dist/css/bootstrap-theme.css")
-
-     ;(include-js "/angular/angular.min.js")
-     ]
-    [:body
-     [:button {:class "btn btn-primary btn-sm" :data-toggle "modal" :data-target "#modalAlert"} "Show Modal"]
-     (create-faded-modal-alert "Info" "This is a Text Message you may read")
-     ;(include-js "/jquery/dist/jquery.js")
-     (include-js "https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js")
-     ;(include-js "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.js")
-     (include-js "/bootstrap/dist/js/bootstrap.js")
-     ]))

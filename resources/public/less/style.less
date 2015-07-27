@@ -1,71 +1,82 @@
-@import "../bootstrap/less/bootstrap.less";
+@import "../bootstrap-3.3.5/less/bootstrap.less";
+@import  "../bootstrap-fileinput/css/fileinput.min.css";
+/*********************************************************************************/
+/* Default Customization                                                         */
+/*********************************************************************************/
+@bgDefault      : rgba(213, 221, 255, 0.75);
+@colHighlight   : #2f2d2d;
+
 
 /*********************************************************************************/
 /* Menu Customization                                                            */
 /*********************************************************************************/
-@bgDefault      : rgba(255, 36, 0, 0.5);
-@bgHighlight    : #8b99b6;
-@colDefault     : #ecf0f1;
-@colHighlight   : #ffffff;
-@dropDown       : true;
-.ddm() when (@dropDown) {
+@bgDefaultMenu      : rgba(255, 36, 0, 0.5);
+@bgHighlightMenu    : #8b99b6;
+@colDefaultMenu     : #ecf0f1;
+@colHighlightMenu   : #ffffff;
+@dropDownMenu       : true;
+.ddm() when (@dropDownMenu) {
   > .dropdown-menu {
-    background-color: @bgDefault;
+    background-color: @bgDefaultMenu;
     > li > a {
-      color: @colDefault;
+      color: @colDefaultMenu;
       &:hover,  &:focus {
-        color: @colHighlight;
-        background-color: @bgHighlight; }}
+        color: @colHighlightMenu;
+        background-color: @bgHighlightMenu; }}
     .divider {
-      background-color: @bgHighlight;}}}
+      background-color: @bgHighlightMenu;}}}
 .navbar-default {
-  background-color: @bgDefault;
-  border-color: @bgHighlight;
+  background-color: @bgDefaultMenu;
+  border-color: @bgHighlightMenu;
   .navbar-brand {
-    color: @colDefault;
+    color: @colDefaultMenu;
     &:hover, &:focus {
-      color: @colHighlight; }}
+      color: @colHighlightMenu; }}
   .navbar-text {
-    color: @colDefault; }
+    color: @colDefaultMenu; }
   .navbar-nav {
     > li {
       > a {
-        color: @colDefault;
+        color: @colDefaultMenu;
         &:hover,  &:focus {
-          color: @colHighlight; }}
+          color: @colHighlightMenu; }}
       .ddm }
     > .active {
       > a, > a:hover, > a:focus {
-        color: @colHighlight;
-        background-color: @bgHighlight; }}
+        color: @colHighlightMenu;
+        background-color: @bgHighlightMenu; }}
     > .open {
       > a, > a:hover, > a:focus {
-        color: @colHighlight;
-        background-color: @bgHighlight; }}}
+        color: @colHighlightMenu;
+        background-color: @bgHighlightMenu; }}}
   .navbar-toggle {
-    border-color: @bgHighlight;
+    border-color: @bgHighlightMenu;
     &:hover, &:focus {
-      background-color: @bgHighlight; }
+      background-color: @bgHighlightMenu; }
     .icon-bar {
-      background-color: @colDefault; }}
+      background-color: @colDefaultMenu; }}
   .navbar-collapse,
   .navbar-form {
-    border-color: @colDefault; }
+    border-color: @colDefaultMenu; }
   .navbar-link {
-    color: @colDefault;
+    color: @colDefaultMenu;
     &:hover {
-      color: @colHighlight; }}}
+      color: @colHighlightMenu; }}}
 @media (max-width: 767px) {
   .navbar-default .navbar-nav .open .dropdown-menu {
     > li > a {
-      color: @colDefault;
+      color: @colDefaultMenu;
       &:hover, &:focus {
-        color: @colHighlight; }}
+        color: @colHighlightMenu; }}
     > .active {
       > a, > a:hover, > a:focus {
-        color: @colHighlight;
-        background-color: @bgHighlight; }}}
+        color: @colHighlightMenu;
+        background-color: @bgHighlightMenu; }}}
 }
+
+/*********************************************************************************/
+/* Defaults                                                                      */
+/*********************************************************************************/
 
 
 /*********************************************************************************/
@@ -107,8 +118,234 @@
   width: 100%;
   position: relative;
 }
-
-navbar-custom-color
+#main-container
 {
-  background: rgba(0,0,0,.1);
+  position: relative;
+  border-radius: 10px;
+  box-shadow: 0 0 30px black;
+  background-color: @bgDefault;
+}
+
+
+#main-panel
+{
+  background-color: @bgDefault;
+  width: 100%;
+  display: inline-block;
+  position: relative;
+  //margin: 5px;
+
+}
+
+.close-button
+{
+  float: right;
+  font-size: 21px;
+  font-weight: bold;
+  padding: 0;
+}
+
+.close-button:hover,
+.close-button:focus {
+  color: @colHighlight;
+  text-decoration: none;
+  cursor: pointer;
+  //filter: alpha(opacity=0);
+  opacity: .1;
+}
+
+.slide-in.ng-leave        {
+  -webkit-animation:slideOutRight 0.2s both ease-in;
+  -moz-animation:slideOutRight 0.2s both ease-in;
+  animation:slideOutRight 0.2s both ease-in;
+}
+.slide-in.ng-enter 		{
+  -webkit-animation:slideInTop 0.1s linear;
+  -moz-animation:slideInTop 0.1s linear;
+  animation:slideInTop 0.1s linear;
+}
+
+
+
+
+
+/* ANIMATIONS
+============================================================================= */
+
+.page.ng-leave 	{ z-index:9999; }
+.page.ng-enter 	{ z-index:8888; }
+
+/* page specific animations ------------------------ */
+
+/* Test -------------------------- */
+/*.page-test.ng-leave         {
+  -webkit-transform-origin: 0% 0%;
+  -webkit-animation: rotateFall 1s both ease-in;
+  -moz-transform-origin: 0% 0%;
+  -moz-animation: rotateFall 1s both ease-in;
+  transform-origin: 0% 0%;
+  animation: rotateFall 1s both ease-in;
+}*/
+.page-test.ng-leave        {
+  -webkit-animation:slideOutRight 0.2s both ease-in;
+  -moz-animation:slideOutRight 0.2s both ease-in;
+  animation:slideOutRight 0.2s both ease-in;
+}
+.page-test.ng-enter 		{
+  -webkit-animation:slideInTop 0.1s both ease-in;
+  -moz-animation:slideInTop 0.1s both ease-in;
+  animation:slideInTop 0.1s both ease-in;
+}
+
+.page-modal.ng-leave        {
+  -webkit-animation:slideOutRight 0.2s both ease-in;
+  -moz-animation:slideOutRight 0.2s both ease-in;
+  animation:slideOutRight 0.2s both ease-in;
+}
+.page-modal.ng-enter 		{
+  -webkit-animation:slideInTop 0.1s both ease-in;
+  -moz-animation:slideInTop 0.1s both ease-in;
+  animation:slideInTop 0.1s both ease-in;
+}
+
+
+
+
+/* about ------------------------ */
+.page-about.ng-leave        {
+  -webkit-animation:slideOutLeft 0.5s both ease-in;
+  -moz-animation:slideOutLeft 0.5s both ease-in;
+  animation:slideOutLeft 0.5s both ease-in;
+}
+.page-about.ng-enter 		{
+  -webkit-animation:slideInRight 0.5s both ease-in;
+  -moz-animation:slideInRight 0.5s both ease-in;
+  animation:slideInRight 0.5s both ease-in;
+}
+
+/* contact ---------------------- */
+.page-contact.ng-leave      {
+  -webkit-transform-origin: 50% 50%;
+  -webkit-animation: rotateOutNewspaper .5s both ease-in;
+  -moz-transform-origin: 50% 50%;
+  -moz-animation: rotateOutNewspaper .5s both ease-in;
+  transform-origin: 50% 50%;
+  animation: rotateOutNewspaper .5s both ease-in;
+}
+.page-contact.ng-enter 		{
+  -webkit-animation:slideInUp 0.5s both ease-in;
+  -moz-animation:slideInUp 0.5s both ease-in;
+  animation:slideInUp 0.5s both ease-in;
+}
+
+/* rotate and fall */
+@-webkit-keyframes rotateFall {
+  0% { -webkit-transform: rotateZ(0deg); }
+  20% { -webkit-transform: rotateZ(10deg); -webkit-animation-timing-function: ease-out; }
+  40% { -webkit-transform: rotateZ(17deg); }
+  60% { -webkit-transform: rotateZ(16deg); }
+  100% { -webkit-transform: translateY(100%) rotateZ(17deg); }
+}
+@-moz-keyframes rotateFall {
+  0% { -moz-transform: rotateZ(0deg); }
+  20% { -moz-transform: rotateZ(10deg); -moz-animation-timing-function: ease-out; }
+  40% { -moz-transform: rotateZ(17deg); }
+  60% { -moz-transform: rotateZ(16deg); }
+  100% { -moz-transform: translateY(100%) rotateZ(17deg); }
+}
+@keyframes rotateFall {
+  0% { transform: rotateZ(0deg); }
+  20% { transform: rotateZ(10deg); animation-timing-function: ease-out; }
+  40% { transform: rotateZ(17deg); }
+  60% { transform: rotateZ(16deg); }
+  100% { transform: translateY(100%) rotateZ(17deg); }
+}
+
+/* scale up */
+@keyframes scaleUp {
+  from 		{ opacity: 0.3; transform: scale(0.8); }
+}
+@-moz-keyframes scaleUp {
+  from 		{ opacity: 0.3; -moz-transform: scale(0.8); }
+}
+@-webkit-keyframes scaleUp {
+  from 		{ opacity: 0.3; -webkit-transform: scale(0.8); }
+}
+
+
+/* slide in from the top */
+@keyframes slideInTop {
+  from 	{ transform:translateY(-50%); }
+  to 		{ transform: translateY(0); }
+}
+@-moz-keyframes slideInTop {
+  from 	{ -moz-transform:translateY(-50%); }
+  to 		{ -moz-transform: translateY(0); }
+}
+@-webkit-keyframes slideInTop {
+  from 	{ -webkit-transform:translateY(-50%); }
+  to 		{ -webkit-transform: translateY(0); }
+}
+
+
+
+/* slide in from the right */
+@keyframes slideInRight {
+  from 	{ transform:translateX(100%); }
+  to 		{ transform: translateX(0); }
+}
+@-moz-keyframes slideInRight {
+  from 	{ -moz-transform:translateX(100%); }
+  to 		{ -moz-transform: translateX(0); }
+}
+@-webkit-keyframes slideInRight {
+  from 	{ -webkit-transform:translateX(100%); }
+  to 		{ -webkit-transform: translateX(0); }
+}
+
+/* slide in from the bottom */
+@keyframes slideInUp {
+  from 	{ transform:translateY(100%); }
+  to 		{ transform: translateY(0); }
+}
+@-moz-keyframes slideInUp {
+  from 	{ -moz-transform:translateY(100%); }
+  to 		{ -moz-transform: translateY(0); }
+}
+@-webkit-keyframes slideInUp {
+  from 	{ -webkit-transform:translateY(100%); }
+  to 		{ -webkit-transform: translateY(0); }
+}
+
+/* slide out to the left */
+@keyframes slideOutLeft {
+  to 		{ transform: translateX(-100%); }
+}
+@-moz-keyframes slideOutLeft {
+  to 		{ -moz-transform: translateX(-100%); }
+}
+@-webkit-keyframes slideOutLeft {
+  to 		{ -webkit-transform: translateX(-100%); }
+}
+
+/* slide out to the right */
+@keyframes slideOutRight {
+  to 		{ transform: translateX(100%); }
+}
+@-moz-keyframes slideOutRight {
+  to 		{ -moz-transform: translateX(100%); }
+}
+@-webkit-keyframes slideOutRight {
+  to 		{ -webkit-transform: translateX(100%); }
+}
+
+/* rotate out newspaper */
+@-webkit-keyframes rotateOutNewspaper {
+  to { -webkit-transform: translateZ(-3000px) rotateZ(360deg); opacity: 0; }
+}
+@-moz-keyframes rotateOutNewspaper {
+  to { -moz-transform: translateZ(-3000px) rotateZ(360deg); opacity: 0; }
+}
+@keyframes rotateOutNewspaper {
+  to { transform: translateZ(-3000px) rotateZ(360deg); opacity: 0; }
 }

@@ -3,28 +3,47 @@ $(window).load(function(){
 });
 
 
-var progressBar =angular.module('progressBar',[]);
-if (!!window.EventSource) {
-    var source = new EventSource("/events");
+var app = angular.module("MyApp", ['ngRoute','ngAnimate']);
 
-    //alert("Your browser supports Server-sent events! Please upgrade it!");
 
-} else {
-    alert("Your browser does not support Server-sent events! Please upgrade it!");
-}
-
-source.addEventListener("message", function(e) {
-    console.log(e.data);
-}, false);
-
-source.addEventListener("open", function(e) {
-    console.log("Connection was opened. hehe ...");
-}, false);
-
-progressBar.controller('progressBarCtrl',['$scope', function($scope) {
-    $scope.pgStates =[
-        {uploadState:"QUEUED", pgValue:0, pgStatus:true},
-        {uploadState: "IN_PROCESS",pgValue:50, pgStatus:true},
-        {uploadState: "PROCESSED",pgValue:100, pgStatus:true},
-        {uploadState: "ERROR",pgValue:100, pgStatus:false}];
+app.controller('templateController',['$scope', function($scope) {
+    $scope.test = 'Hi from Template Controller';
 }]);
+
+
+app.controller('testController',['$scope', function($scope) {
+    $scope.test = 'Test Controller';
+    //$scope.pageClass = 'page-test';
+    $('#modalAlert1').modal('show');
+}]);
+
+
+app.controller('testController2',['$scope', function($scope) {
+    $scope.pageClass = 'page-modal';
+    $('#modalAlert').modal('show');
+}]);
+
+
+
+app.config(['$routeProvider',function ($routeprovider){
+    $routeprovider
+        .when('/generateTemplate',
+        {
+            templateUrl: '/generateTemplate',
+            controller: 'testController',
+            controllerAs: ''
+        })
+    .when('/generateModal',
+        {
+            templateUrl: '/generateModal',
+            controller: 'testController2',
+            controllerAs: ''
+        });
+
+}]);
+
+
+
+
+
+
