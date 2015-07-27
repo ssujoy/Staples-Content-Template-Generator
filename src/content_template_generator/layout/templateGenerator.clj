@@ -9,8 +9,10 @@
 
 (defn create-template-form [title]
   [:div.container {:id "main-container" :ng-controller "templateController" }
+   [:h4 {:style "float:left"}title]
    [:a.btn.close-button {:href "#"  :aria-label "close"} "&times;"]
    [:br]
+   [:hr]
    [:div.panel.panel-primary {:id "main-panel" :style "width:50%; display:block"}
         [:div.panel-heading {:style "text-align:left"}title]
         [:div.panel-body "Panel Body"
